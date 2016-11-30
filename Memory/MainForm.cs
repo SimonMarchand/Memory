@@ -16,5 +16,15 @@ namespace Memory
         {
             InitializeComponent();
         }
+
+        private void btn_retourner_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_distribuer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
