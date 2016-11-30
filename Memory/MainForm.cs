@@ -24,7 +24,23 @@ namespace Memory
 
         private void btn_distribuer_Click(object sender, EventArgs e)
         {
-
+            Distribution_Sequentielle();
         }
+
+        private void Distribution_Sequentielle()
+        {
+            int i_carte = 1;
+
+            foreach (Control ctrl in CardsTableLayout.Controls)
+            {
+                if (ctrl is PictureBox)
+                {
+                    PictureBox carte = (PictureBox)ctrl;
+                    carte.Image = il_cards_deck.Images[i_carte];
+                    i_carte++;
+                }
+            }
+        }
+
     }
 }

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.title = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -39,12 +41,13 @@
             this.pb_06 = new System.Windows.Forms.PictureBox();
             this.pb_07 = new System.Windows.Forms.PictureBox();
             this.pb_08 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.CardsTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_distribuer = new System.Windows.Forms.Button();
             this.btn_retourner = new System.Windows.Forms.Button();
             this.btn_jouer = new System.Windows.Forms.Button();
+            this.il_cards_deck = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_02)).BeginInit();
@@ -55,7 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_06)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_07)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_08)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.CardsTableLayout.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +69,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.title, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.CardsTableLayout, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -188,20 +191,20 @@
             this.pb_08.TabIndex = 0;
             this.pb_08.TabStop = false;
             // 
-            // tableLayoutPanel3
+            // CardsTableLayout
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 345);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(717, 137);
-            this.tableLayoutPanel3.TabIndex = 2;
+            this.CardsTableLayout.ColumnCount = 2;
+            this.CardsTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.CardsTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.CardsTableLayout.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.CardsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CardsTableLayout.Location = new System.Drawing.Point(3, 345);
+            this.CardsTableLayout.Name = "CardsTableLayout";
+            this.CardsTableLayout.RowCount = 1;
+            this.CardsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.CardsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.CardsTableLayout.Size = new System.Drawing.Size(717, 137);
+            this.CardsTableLayout.TabIndex = 2;
             // 
             // tableLayoutPanel4
             // 
@@ -270,6 +273,53 @@
             this.btn_jouer.Text = "Jouer";
             this.btn_jouer.UseVisualStyleBackColor = true;
             // 
+            // il_cards_deck
+            // 
+            this.il_cards_deck.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("il_cards_deck.ImageStream")));
+            this.il_cards_deck.TransparentColor = System.Drawing.Color.Transparent;
+            this.il_cards_deck.Images.SetKeyName(0, "DosCarte.jpg");
+            this.il_cards_deck.Images.SetKeyName(1, "Abeille.jpg");
+            this.il_cards_deck.Images.SetKeyName(2, "Autruches.jpg");
+            this.il_cards_deck.Images.SetKeyName(3, "Canard.jpg");
+            this.il_cards_deck.Images.SetKeyName(4, "Chameau.jpg");
+            this.il_cards_deck.Images.SetKeyName(5, "Chien.jpg");
+            this.il_cards_deck.Images.SetKeyName(6, "ChienGamelle.jpg");
+            this.il_cards_deck.Images.SetKeyName(7, "ChienMechant.jpg");
+            this.il_cards_deck.Images.SetKeyName(8, "ChienSavant.jpg");
+            this.il_cards_deck.Images.SetKeyName(9, "Chimpanze.jpg");
+            this.il_cards_deck.Images.SetKeyName(10, "Coccinelle.jpg");
+            this.il_cards_deck.Images.SetKeyName(11, "Crabe.jpg");
+            this.il_cards_deck.Images.SetKeyName(12, "Crocodile.jpg");
+            this.il_cards_deck.Images.SetKeyName(13, "Dauphin.jpg");
+            this.il_cards_deck.Images.SetKeyName(14, "Ecureuil.jpg");
+            this.il_cards_deck.Images.SetKeyName(15, "Hanneton.jpg");
+            this.il_cards_deck.Images.SetKeyName(16, "Hibou.jpg");
+            this.il_cards_deck.Images.SetKeyName(17, "Hippocampe.jpg");
+            this.il_cards_deck.Images.SetKeyName(18, "Homard.jpg");
+            this.il_cards_deck.Images.SetKeyName(19, "Kangourou.jpg");
+            this.il_cards_deck.Images.SetKeyName(20, "Lapin.jpg");
+            this.il_cards_deck.Images.SetKeyName(21, "LapinChapeau.jpg");
+            this.il_cards_deck.Images.SetKeyName(22, "LapinRieur.jpg");
+            this.il_cards_deck.Images.SetKeyName(23, "Lion.jpg");
+            this.il_cards_deck.Images.SetKeyName(24, "MacareuxMoine.jpg");
+            this.il_cards_deck.Images.SetKeyName(25, "Mouette.jpg");
+            this.il_cards_deck.Images.SetKeyName(26, "Ocelot.jpg");
+            this.il_cards_deck.Images.SetKeyName(27, "OiseauCage.jpg");
+            this.il_cards_deck.Images.SetKeyName(28, "OiseauChante.jpg");
+            this.il_cards_deck.Images.SetKeyName(29, "OiseauPic.jpg");
+            this.il_cards_deck.Images.SetKeyName(30, "Orycterope.jpg");
+            this.il_cards_deck.Images.SetKeyName(31, "Papillon.jpg");
+            this.il_cards_deck.Images.SetKeyName(32, "PoissonBocal.jpg");
+            this.il_cards_deck.Images.SetKeyName(33, "PoissonBulle.jpg");
+            this.il_cards_deck.Images.SetKeyName(34, "PoissonPapillon.jpg");
+            this.il_cards_deck.Images.SetKeyName(35, "PorcEpic.jpg");
+            this.il_cards_deck.Images.SetKeyName(36, "PorcEpic2.jpg");
+            this.il_cards_deck.Images.SetKeyName(37, "Renne.jpg");
+            this.il_cards_deck.Images.SetKeyName(38, "Renne2.jpg");
+            this.il_cards_deck.Images.SetKeyName(39, "Serpent.jpg");
+            this.il_cards_deck.Images.SetKeyName(40, "Taureau.jpg");
+            this.il_cards_deck.Images.SetKeyName(41, "Vache.jpg");
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -289,7 +339,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_06)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_07)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_08)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
+            this.CardsTableLayout.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -309,11 +359,12 @@
         private System.Windows.Forms.PictureBox pb_06;
         private System.Windows.Forms.PictureBox pb_07;
         private System.Windows.Forms.PictureBox pb_08;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel CardsTableLayout;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button btn_distribuer;
         private System.Windows.Forms.Button btn_retourner;
         private System.Windows.Forms.Button btn_jouer;
+        private System.Windows.Forms.ImageList il_cards_deck;
     }
 }
