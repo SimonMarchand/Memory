@@ -1,1 +1,2 @@
 D:\MEGA\Documents\Scolarité\7-Polytech\ISI\TP\Memory\Memory\bin\Debug\Memory.exe.config
+C:\Users\felix\Documents\projets\Memory\Memory\bin\Debug\Memory.exe.config
