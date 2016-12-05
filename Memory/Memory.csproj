@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="dllLoto">
+      <HintPath>images\DLL\dllLoto.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -65,6 +68,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +82,132 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Abeille.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Autruches.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Canard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Chameau.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Chien.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\ChienGamelle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\ChienMechant.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\ChienSavant.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Chimpanze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Coccinelle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Crabe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Crocodile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Dauphin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\DosCarte.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Ecureuil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Hanneton.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Hibou.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Hippocampe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Homard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Kangourou.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Lapin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\LapinChapeau.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\LapinRieur.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Lion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\MacareuxMoine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Mouette.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Ocelot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\OiseauCage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\OiseauChante.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\OiseauPic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Orycterope.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Papillon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\PoissonBocal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\PoissonBulle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\PoissonPapillon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\PorcEpic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\PorcEpic2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Renne.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Renne2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Serpent.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Taureau.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\animaux\Vache.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
