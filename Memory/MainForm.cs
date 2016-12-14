@@ -113,6 +113,11 @@ namespace Memory
             */
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         /*
         private void pb_XX_Click(object sender, EventArgs e)
         {
