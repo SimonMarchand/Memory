@@ -18,6 +18,8 @@ namespace Memory
                                 // d'images dans le réservoir)
         int nbCartesSurTapis;   // Nombre de cartes sur le tapis
 
+        private int[] cartesDistribuees;
+
 
         public MainForm()
         {
@@ -72,30 +74,35 @@ namespace Memory
             
             // On veut une série de nbCartesSurTapis cartes parmi celles 
             // du réservoir
-            int[] tImagesCartes = new int[nbCartesSurTapis];
+            cartesDistribuees = new int[nbCartesSurTapis];
             int[] tImagesCartes_temp = hasard.TirageAleatoire(nbCartesSurTapis/2, false).Skip(1).ToArray();
 
             // On copie deux fois le tableau temporaire pour avoir 4 doublons d'images
-            tImagesCartes_temp.CopyTo(tImagesCartes, 0);
-            tImagesCartes_temp.CopyTo(tImagesCartes, nbCartesSurTapis/2);
+            tImagesCartes_temp.CopyTo(cartesDistribuees, 0);
+            tImagesCartes_temp.CopyTo(cartesDistribuees, nbCartesSurTapis/2);
 
             // On mélange le tableau
             Random rnd = new Random();
-            tImagesCartes = tImagesCartes.OrderBy(x => rnd.Next()).ToArray();
-
-            // La série d'entiers retournée par la LotoMachine correspondra
-            // aux indices des cartes dans le "sabot"
+            cartesDistribuees = cartesDistribuees.OrderBy(x => rnd.Next()).ToArray();
 
             // Affectation des images aux picturebox
-            PictureBox carte;
-            int i_image;
+            afficherCartes(cartesDistribuees);
+        }
+
+        private void afficherCartes(int[] cartes)
+        {
             for (int i_carte = 0; i_carte < nbCartesSurTapis; i_carte++)
             {
-                carte = (PictureBox)CardsTableLayout.Controls[i_carte];
-                i_image = tImagesCartes[i_carte];
-
-                carte.Image = il_cards_deck.Images[i_image];
+                afficherCarte(i_carte, cartes);
             }
+        }
+
+        // Affiche la carte de l'indice donné depuis la liste de cartes donnée
+        private void afficherCarte(int indice, int[] cartes)
+        {
+            PictureBox carte = (PictureBox)CardsTableLayout.Controls[indice];
+            int i_image = cartes[indice];
+            carte.Image = il_cards_deck.Images[i_image];
         }
 
         private void btn_jouer_Click(object sender, EventArgs e)
