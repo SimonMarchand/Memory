@@ -75,8 +75,14 @@ namespace Memory
             int[] tImagesCartes = new int[nbCartesSurTapis];
             int[] tImagesCartes_temp = hasard.TirageAleatoire(nbCartesSurTapis/2, false).Skip(1).ToArray();
 
+            // On copie deux fois le tableau temporaire pour avoir 4 doublons d'images
+            tImagesCartes_temp.CopyTo(tImagesCartes, 0);
             tImagesCartes_temp.CopyTo(tImagesCartes, nbCartesSurTapis/2);
-            
+
+            // On mélange le tableau
+            Random rnd = new Random();
+            tImagesCartes = tImagesCartes.OrderBy(x => rnd.Next()).ToArray();
+
             // La série d'entiers retournée par la LotoMachine correspondra
             // aux indices des cartes dans le "sabot"
 
