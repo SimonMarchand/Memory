@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dllLoto;
@@ -19,6 +21,8 @@ namespace Memory
         int nbCartesSurTapis;   // Nombre de cartes sur le tapis
 
         private int[] cartesDistribuees;
+
+        private static int[] cartesCachees = {0, 0, 0, 0, 0, 0, 0, 0};
 
 
         public MainForm()
@@ -48,6 +52,8 @@ namespace Memory
 
             // On effectue la distribution (aléatoire) proprement dite
             Distribution_Aleatoire();
+
+            afficherCartes(cartesCachees);
         }
 
         private void Distribution_Sequentielle()
@@ -70,7 +76,6 @@ namespace Memory
         {
             // On utilise la LotoMachine pour générer une série aléatoire
             LotoMachine hasard = new LotoMachine(nbCartesDansSabot);
-            Console.WriteLine(hasard);
             
             // On veut une série de nbCartesSurTapis cartes parmi celles 
             // du réservoir
@@ -84,9 +89,6 @@ namespace Memory
             // On mélange le tableau
             Random rnd = new Random();
             cartesDistribuees = cartesDistribuees.OrderBy(x => rnd.Next()).ToArray();
-
-            // Affectation des images aux picturebox
-            afficherCartes(cartesDistribuees);
         }
 
         private void afficherCartes(int[] cartes)
@@ -100,6 +102,7 @@ namespace Memory
         // Affiche la carte de l'indice donné depuis la liste de cartes donnée
         private void afficherCarte(int indice, int[] cartes)
         {
+            //Console.WriteLine(indice);
             PictureBox carte = (PictureBox)CardsTableLayout.Controls[indice];
             int i_image = cartes[indice];
             carte.Image = il_cards_deck.Images[i_image];
@@ -107,23 +110,9 @@ namespace Memory
 
         private void btn_jouer_Click(object sender, EventArgs e)
         {
-            /* TEST DE DLLLOTTO
-            // On utilise la LotoMachine pour générer une série aléatoire
-            // On fixe à 49 le nombre maxi que retourne la machine
-            LotoMachine hasard = new LotoMachine(49);
-            // On veut une série de 6 numéros distincts parmi 49 (comme quand on joue au loto)
-            int[] tirageLoto = hasard.TirageAleatoire(6, false);
-            // false veut dire pas de doublon : une fois qu'une boule est sortie, 
-            // elle ne peut pas sortir à nouveau ;-)
-            // La série d'entiers retournée par la LotoMachine correspond au loto
-            // affiché sur votre écran TV ce soir...
-            string grilleLoto = "* ";
-            for (int i = 1; i <= 6; i++)
-            {
-                grilleLoto = grilleLoto + tirageLoto[i] + " * ";
-            }
-            MessageBox.Show(grilleLoto, "Tirage du LOTO ce jour !");
-            */
+            afficherCartes(cartesDistribuees);
+            Thread.Sleep(2000);
+            afficherCartes(cartesCachees);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -131,51 +120,50 @@ namespace Memory
 
         }
 
-        /*
-        private void pb_XX_Click(object sender, EventArgs e)
+        // Permet de gérer le clic sur une image à l'index donné
+        private void clickOnCard(int i)
         {
-            PictureBox carte;
-            int i_carte, i_image;
-            //if (Image_1 == null)
-            //    MessageBox.Show("L'image 1 n'est pas référencée");
-            //if (Image_2 == null)
-            //    MessageBox.Show("L'image 2 n'est pas référencée");
+            afficherCarte(i, cartesDistribuees);
+        }
 
-            if (nb_cartes < 2)
-            {
-                carte = (PictureBox)sender;
-                i_carte = Convert.ToInt32(carte.Tag);
-                i_image = tapisCARTES[i_carte];
-                carte.Image = imgListe.Images[i_image];
-                if (i_image == i_hasard)
-                {
-                    MessageBox.Show("Bravo !");
-                }
-                else
-                {
-                    MessageBox.Show("DOMMAGE !");
-                }
-                if (nb_cartes == 0)
-                {
-                    Image_1 = carte;
-                }
-                if (nb_cartes == 1)
-                {
-                    Image_2 = carte;
-                }
-                nb_cartes++;
+        private void pb_01_Click(object sender, EventArgs e)
+        {
+            clickOnCard(0);
+        }
 
-            }
-            else
-            {
-                MessageBox.Show("Deux cartes sont déjà retournées !");
-                RetournerLesCartes();
-                nb_cartes = 0;
-                Image_1 = null;
-                Image_2 = null;
-            }
+        private void pb_02_Click(object sender, EventArgs e)
+        {
+            clickOnCard(1);
+        }
 
-        }*/
+        private void pb_03_Click(object sender, EventArgs e)
+        {
+            clickOnCard(2);
+        }
 
+        private void pb_04_Click(object sender, EventArgs e)
+        {
+            clickOnCard(3);
+        }
+
+        private void pb_05_Click(object sender, EventArgs e)
+        {
+            clickOnCard(4);
+        }
+
+        private void pb_06_Click(object sender, EventArgs e)
+        {
+            clickOnCard(5);
+        }
+
+        private void pb_07_Click(object sender, EventArgs e)
+        {
+            clickOnCard(6);
+        }
+
+        private void pb_08_Click(object sender, EventArgs e)
+        {
+            clickOnCard(7);
+        }
     }
 }

@@ -127,6 +127,7 @@
             this.pb_02.Size = new System.Drawing.Size(149, 126);
             this.pb_02.TabIndex = 0;
             this.pb_02.TabStop = false;
+            this.pb_02.Click += new System.EventHandler(this.pb_02_Click);
             // 
             // pb_03
             // 
@@ -136,6 +137,7 @@
             this.pb_03.Size = new System.Drawing.Size(149, 126);
             this.pb_03.TabIndex = 0;
             this.pb_03.TabStop = false;
+            this.pb_03.Click += new System.EventHandler(this.pb_03_Click);
             // 
             // pb_04
             // 
@@ -145,6 +147,7 @@
             this.pb_04.Size = new System.Drawing.Size(149, 126);
             this.pb_04.TabIndex = 0;
             this.pb_04.TabStop = false;
+            this.pb_04.Click += new System.EventHandler(this.pb_04_Click);
             // 
             // pb_01
             // 
@@ -154,6 +157,7 @@
             this.pb_01.Size = new System.Drawing.Size(149, 126);
             this.pb_01.TabIndex = 0;
             this.pb_01.TabStop = false;
+            this.pb_01.Click += new System.EventHandler(this.pb_01_Click);
             // 
             // pb_05
             // 
@@ -163,6 +167,7 @@
             this.pb_05.Size = new System.Drawing.Size(149, 127);
             this.pb_05.TabIndex = 0;
             this.pb_05.TabStop = false;
+            this.pb_05.Click += new System.EventHandler(this.pb_05_Click);
             // 
             // pb_06
             // 
@@ -172,6 +177,7 @@
             this.pb_06.Size = new System.Drawing.Size(149, 127);
             this.pb_06.TabIndex = 0;
             this.pb_06.TabStop = false;
+            this.pb_06.Click += new System.EventHandler(this.pb_06_Click);
             // 
             // pb_07
             // 
@@ -181,6 +187,7 @@
             this.pb_07.Size = new System.Drawing.Size(149, 127);
             this.pb_07.TabIndex = 0;
             this.pb_07.TabStop = false;
+            this.pb_07.Click += new System.EventHandler(this.pb_07_Click);
             // 
             // pb_08
             // 
@@ -190,6 +197,7 @@
             this.pb_08.Size = new System.Drawing.Size(149, 127);
             this.pb_08.TabIndex = 0;
             this.pb_08.TabStop = false;
+            this.pb_08.Click += new System.EventHandler(this.pb_08_Click);
             // 
             // ButtonsLayout
             // 
