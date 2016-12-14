@@ -43,7 +43,6 @@ namespace Memory
             // On récupère également le nombre de cartes à distribuées sur la tapis
             // autrement dit le nombre de contrôles présents sur le conteneur
             nbCartesSurTapis = CardsTableLayout.Controls.Count;
-            Console.WriteLine(nbCartesSurTapis);
 
             // On effectue la distribution (aléatoire) proprement dite
             Distribution_Aleatoire();
@@ -69,11 +68,15 @@ namespace Memory
         {
             // On utilise la LotoMachine pour générer une série aléatoire
             LotoMachine hasard = new LotoMachine(nbCartesDansSabot);
+            Console.WriteLine(hasard);
+            
             // On veut une série de nbCartesSurTapis cartes parmi celles 
             // du réservoir
             int[] tImagesCartes = new int[nbCartesSurTapis];
-            int[] tImagesCartes_temp = hasard.TirageAleatoire(nbCartesSurTapis/2, false);
-            tImagesCartes_temp.CopyTo(tImagesCartes, nbCartesSurTapis/2+1);
+            int[] tImagesCartes_temp = hasard.TirageAleatoire(nbCartesSurTapis/2, false).Skip(1).ToArray();
+
+            tImagesCartes_temp.CopyTo(tImagesCartes, nbCartesSurTapis/2);
+            
             // La série d'entiers retournée par la LotoMachine correspondra
             // aux indices des cartes dans le "sabot"
 
@@ -83,7 +86,7 @@ namespace Memory
             for (int i_carte = 0; i_carte < nbCartesSurTapis; i_carte++)
             {
                 carte = (PictureBox)CardsTableLayout.Controls[i_carte];
-                i_image = tImagesCartes[i_carte + 1]; // i_carte + 1 à cause des pbs d'indices
+                i_image = tImagesCartes[i_carte];
 
                 carte.Image = il_cards_deck.Images[i_image];
             }
