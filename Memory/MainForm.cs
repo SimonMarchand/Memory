@@ -22,17 +22,38 @@ namespace Memory
 
         private int[] cartesDistribuees;
 
-        private static int[] cartesCachees = {0, 0, 0, 0, 0, 0, 0, 0};
+        private static int[] cartesCachees = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
+        private List<int> pbList;
+
+        private List<int> cartesRetournees;
+        private List<int> essaiCartes;
+
+        private bool inGame = false;
 
         public MainForm()
         {
             InitializeComponent();
+            cartesRetournees = new List<int>();
+            essaiCartes = new List<int>();
+            /*pbList = new List<int>();
+
+            for (int i = 0; i < CardsTableLayout.Controls.Count; i++)
+            {
+                foreach (PictureBox pictureBox in CardsTableLayout.Controls)
+                {
+                    if (pictureBox.Name == "pb_0" + i)
+                    {
+                        pbList.Add(i);
+                    }
+                }
+            }*/
         }
 
         private void btn_retourner_Click(object sender, EventArgs e)
         {
-
+            if (cartesDistribuees != null)
+                afficherCartes(cartesDistribuees);
         }
 
         private void btn_distribuer_Click(object sender, EventArgs e)
@@ -76,15 +97,15 @@ namespace Memory
         {
             // On utilise la LotoMachine pour générer une série aléatoire
             LotoMachine hasard = new LotoMachine(nbCartesDansSabot);
-            
+
             // On veut une série de nbCartesSurTapis cartes parmi celles 
             // du réservoir
             cartesDistribuees = new int[nbCartesSurTapis];
-            int[] tImagesCartes_temp = hasard.TirageAleatoire(nbCartesSurTapis/2, false).Skip(1).ToArray();
+            int[] tImagesCartes_temp = hasard.TirageAleatoire(nbCartesSurTapis / 2, false).Skip(1).ToArray();
 
             // On copie deux fois le tableau temporaire pour avoir 4 doublons d'images
             tImagesCartes_temp.CopyTo(cartesDistribuees, 0);
-            tImagesCartes_temp.CopyTo(cartesDistribuees, nbCartesSurTapis/2);
+            tImagesCartes_temp.CopyTo(cartesDistribuees, nbCartesSurTapis / 2);
 
             // On mélange le tableau
             Random rnd = new Random();
@@ -105,7 +126,7 @@ namespace Memory
             //Console.WriteLine(indice);
             foreach (PictureBox pictureBox in CardsTableLayout.Controls)
             {
-                if (pictureBox.Name == "pb_0" + (indice+1))
+                if (pictureBox.Name == "pb_0" + (indice + 1))
                 {
                     PictureBox carte = pictureBox;
                     int i_image = cartes[indice];
@@ -116,10 +137,14 @@ namespace Memory
 
         private void btn_jouer_Click(object sender, EventArgs e)
         {
-            afficherCartes(cartesDistribuees);
-            this.Refresh();
-            Thread.Sleep(2000);
-            afficherCartes(cartesCachees);
+            if (cartesDistribuees != null)
+            {
+                afficherCartes(cartesDistribuees);
+                this.Refresh();
+                Thread.Sleep(5000);
+                afficherCartes(cartesCachees);
+                inGame = true;
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -130,7 +155,28 @@ namespace Memory
         // Permet de gérer le clic sur une image à l'index donné
         private void clickOnCard(int i)
         {
-            afficherCarte(i, cartesDistribuees);
+            if (inGame)
+            {
+                afficherCarte(i, cartesDistribuees);
+                essaiCartes.Add(i);
+                cartesRetournees.Add(i);
+                if (essaiCartes.Count == 2)
+                {
+                    if (cartesDistribuees[essaiCartes[0]] != cartesDistribuees[essaiCartes[1]])
+                    {
+                        MessageBox.Show(null, "Perdu !", "Vous avez perdu !", MessageBoxButtons.OK);
+                        inGame = false;
+                        afficherCartes(cartesDistribuees);
+                    }
+
+                    essaiCartes = new List<int>();
+                }
+                if (cartesRetournees.Count == CardsTableLayout.Controls.Count)
+                {
+                    inGame = false;
+                    MessageBox.Show(null, "Gagné !","Vous avez gagné !", MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void pb_01_Click(object sender, EventArgs e)
