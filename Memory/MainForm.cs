@@ -30,13 +30,12 @@ namespace Memory
         private List<int> essaiCartes;
 
         private int counter;
-
-        private bool inGame = false;
+        
         private bool lockJouer = false;
 
         private System.Windows.Forms.Timer timer;
 
-        private static int countdownValue = 45;
+        private static int countdownValue = 30;
 
         public MainForm()
         {
@@ -155,7 +154,7 @@ namespace Memory
                 btn_distribuer.Enabled = false;
 
                 timer = new System.Windows.Forms.Timer();
-                timer.Tick += new EventHandler(timer_tick_init);
+                timer.Tick += timer_tick_init;
                 timer.Interval = 1000;
                 timer.Start();
 
@@ -176,7 +175,7 @@ namespace Memory
             counter = countdownValue;
             timerLabel.Text = counter.ToString();
             timer = new System.Windows.Forms.Timer();
-            timer.Tick += new EventHandler(timer_tick_game);
+            timer.Tick += timer_tick_game;
             timer.Interval = 1000;
             timer.Start();
         }
