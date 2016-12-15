@@ -29,7 +29,11 @@ namespace Memory
         private List<int> cartesRetournees;
         private List<int> essaiCartes;
 
+        private int counter;
+
         private bool inGame = false;
+
+        private System.Windows.Forms.Timer timer;
 
         public MainForm()
         {
@@ -73,6 +77,9 @@ namespace Memory
 
             // On effectue la distribution (aléatoire) proprement dite
             Distribution_Aleatoire();
+
+            tempsRestantLabel.Text = "";
+            timerLabel.Text = "";
 
             afficherCartes(cartesCachees);
         }
@@ -139,11 +146,66 @@ namespace Memory
         {
             if (cartesDistribuees != null)
             {
+                timer = new System.Windows.Forms.Timer();
+                timer.Tick += new EventHandler(timer_tick_init);
+                timer.Interval = 1000;
+                timer.Start();
+
+                counter = 5;
+                timerLabel.Text = counter.ToString();
+
                 afficherCartes(cartesDistribuees);
                 this.Refresh();
-                Thread.Sleep(5000);
-                afficherCartes(cartesCachees);
-                inGame = true;
+            }
+        }
+
+        private void beginGame()
+        {
+
+            afficherCartes(cartesCachees);
+            tempsRestantLabel.Text = "Temps restant :";
+            inGame = true;
+
+            counter = 2;
+            timerLabel.Text = counter.ToString();
+            timer = new System.Windows.Forms.Timer();
+            timer.Tick += new EventHandler(timer_tick_game);
+            timer.Interval = 1000;
+            timer.Start();
+        }
+
+        private void endGame()
+        {
+            MessageBox.Show(null, "Vous avez perdu !", "Perdu !", MessageBoxButtons.OK);
+            inGame = false;
+            afficherCartes(cartesDistribuees);
+        }
+
+        private void timer_tick_init(Object sender, EventArgs e)
+        {
+            if (counter > 0)
+            {
+                counter--;
+                timerLabel.Text = counter.ToString();
+            }
+            else
+            {
+                timer.Stop();
+                beginGame();
+            }
+        }
+
+        private void timer_tick_game(Object sender, EventArgs e)
+        {
+            if (counter > 0)
+            {
+                counter--;
+                timerLabel.Text = counter.ToString();
+            }
+            else
+            {
+                timer.Stop();
+                endGame();
             }
         }
 
@@ -164,7 +226,7 @@ namespace Memory
                 {
                     if (cartesDistribuees[essaiCartes[0]] != cartesDistribuees[essaiCartes[1]])
                     {
-                        MessageBox.Show(null, "Perdu !", "Vous avez perdu !", MessageBoxButtons.OK);
+                        MessageBox.Show(null, "Vous avez perdu !", "Perdu !", MessageBoxButtons.OK);
                         inGame = false;
                         afficherCartes(cartesDistribuees);
                     }
@@ -174,7 +236,7 @@ namespace Memory
                 if (cartesRetournees.Count == CardsTableLayout.Controls.Count)
                 {
                     inGame = false;
-                    MessageBox.Show(null, "Gagné !","Vous avez gagné !", MessageBoxButtons.OK);
+                    MessageBox.Show(null, "Vous avez gagné !", "Gagné !", MessageBoxButtons.OK);
                 }
             }
         }

@@ -48,6 +48,8 @@
             this.btn_retourner = new System.Windows.Forms.Button();
             this.btn_jouer = new System.Windows.Forms.Button();
             this.il_cards_deck = new System.Windows.Forms.ImageList(this.components);
+            this.tempsRestantLabel = new System.Windows.Forms.Label();
+            this.timerLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.CardsTableLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_02)).BeginInit();
@@ -73,11 +75,10 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(782, 603);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -88,7 +89,7 @@
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.Location = new System.Drawing.Point(3, 0);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(776, 90);
+            this.title.Size = new System.Drawing.Size(776, 106);
             this.title.TabIndex = 0;
             this.title.Text = "Le grand jeu du memory !";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -111,12 +112,12 @@
             this.CardsTableLayout.Controls.Add(this.pb_07, 3, 1);
             this.CardsTableLayout.Controls.Add(this.pb_08, 4, 1);
             this.CardsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CardsTableLayout.Location = new System.Drawing.Point(3, 93);
+            this.CardsTableLayout.Location = new System.Drawing.Point(3, 109);
             this.CardsTableLayout.Name = "CardsTableLayout";
             this.CardsTableLayout.RowCount = 2;
             this.CardsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.CardsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CardsTableLayout.Size = new System.Drawing.Size(776, 265);
+            this.CardsTableLayout.Size = new System.Drawing.Size(776, 313);
             this.CardsTableLayout.TabIndex = 1;
             // 
             // pb_02
@@ -124,7 +125,7 @@
             this.pb_02.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_02.Location = new System.Drawing.Point(235, 3);
             this.pb_02.Name = "pb_02";
-            this.pb_02.Size = new System.Drawing.Size(149, 126);
+            this.pb_02.Size = new System.Drawing.Size(149, 150);
             this.pb_02.TabIndex = 0;
             this.pb_02.TabStop = false;
             this.pb_02.Click += new System.EventHandler(this.pb_02_Click);
@@ -134,7 +135,7 @@
             this.pb_03.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_03.Location = new System.Drawing.Point(390, 3);
             this.pb_03.Name = "pb_03";
-            this.pb_03.Size = new System.Drawing.Size(149, 126);
+            this.pb_03.Size = new System.Drawing.Size(149, 150);
             this.pb_03.TabIndex = 0;
             this.pb_03.TabStop = false;
             this.pb_03.Click += new System.EventHandler(this.pb_03_Click);
@@ -144,7 +145,7 @@
             this.pb_04.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_04.Location = new System.Drawing.Point(545, 3);
             this.pb_04.Name = "pb_04";
-            this.pb_04.Size = new System.Drawing.Size(149, 126);
+            this.pb_04.Size = new System.Drawing.Size(149, 150);
             this.pb_04.TabIndex = 0;
             this.pb_04.TabStop = false;
             this.pb_04.Click += new System.EventHandler(this.pb_04_Click);
@@ -154,7 +155,7 @@
             this.pb_01.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_01.Location = new System.Drawing.Point(80, 3);
             this.pb_01.Name = "pb_01";
-            this.pb_01.Size = new System.Drawing.Size(149, 126);
+            this.pb_01.Size = new System.Drawing.Size(149, 150);
             this.pb_01.TabIndex = 0;
             this.pb_01.TabStop = false;
             this.pb_01.Click += new System.EventHandler(this.pb_01_Click);
@@ -162,9 +163,9 @@
             // pb_05
             // 
             this.pb_05.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_05.Location = new System.Drawing.Point(80, 135);
+            this.pb_05.Location = new System.Drawing.Point(80, 159);
             this.pb_05.Name = "pb_05";
-            this.pb_05.Size = new System.Drawing.Size(149, 127);
+            this.pb_05.Size = new System.Drawing.Size(149, 151);
             this.pb_05.TabIndex = 0;
             this.pb_05.TabStop = false;
             this.pb_05.Click += new System.EventHandler(this.pb_05_Click);
@@ -172,9 +173,9 @@
             // pb_06
             // 
             this.pb_06.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_06.Location = new System.Drawing.Point(235, 135);
+            this.pb_06.Location = new System.Drawing.Point(235, 159);
             this.pb_06.Name = "pb_06";
-            this.pb_06.Size = new System.Drawing.Size(149, 127);
+            this.pb_06.Size = new System.Drawing.Size(149, 151);
             this.pb_06.TabIndex = 0;
             this.pb_06.TabStop = false;
             this.pb_06.Click += new System.EventHandler(this.pb_06_Click);
@@ -182,9 +183,9 @@
             // pb_07
             // 
             this.pb_07.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_07.Location = new System.Drawing.Point(390, 135);
+            this.pb_07.Location = new System.Drawing.Point(390, 159);
             this.pb_07.Name = "pb_07";
-            this.pb_07.Size = new System.Drawing.Size(149, 127);
+            this.pb_07.Size = new System.Drawing.Size(149, 151);
             this.pb_07.TabIndex = 0;
             this.pb_07.TabStop = false;
             this.pb_07.Click += new System.EventHandler(this.pb_07_Click);
@@ -192,9 +193,9 @@
             // pb_08
             // 
             this.pb_08.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_08.Location = new System.Drawing.Point(545, 135);
+            this.pb_08.Location = new System.Drawing.Point(545, 159);
             this.pb_08.Name = "pb_08";
-            this.pb_08.Size = new System.Drawing.Size(149, 127);
+            this.pb_08.Size = new System.Drawing.Size(149, 151);
             this.pb_08.TabIndex = 0;
             this.pb_08.TabStop = false;
             this.pb_08.Click += new System.EventHandler(this.pb_08_Click);
@@ -205,13 +206,14 @@
             this.ButtonsLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.ButtonsLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.ButtonsLayout.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.ButtonsLayout.Controls.Add(this.timerLabel, 1, 0);
             this.ButtonsLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonsLayout.Location = new System.Drawing.Point(3, 364);
+            this.ButtonsLayout.Location = new System.Drawing.Point(3, 428);
             this.ButtonsLayout.Name = "ButtonsLayout";
             this.ButtonsLayout.RowCount = 1;
             this.ButtonsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.ButtonsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.ButtonsLayout.Size = new System.Drawing.Size(776, 144);
+            this.ButtonsLayout.Size = new System.Drawing.Size(776, 172);
             this.ButtonsLayout.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -219,13 +221,14 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.tempsRestantLabel, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(537, 138);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(537, 166);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -243,7 +246,7 @@
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(531, 63);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(531, 77);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // btn_distribuer
@@ -252,7 +255,7 @@
             this.btn_distribuer.Location = new System.Drawing.Point(15, 5);
             this.btn_distribuer.Margin = new System.Windows.Forms.Padding(15, 5, 15, 5);
             this.btn_distribuer.Name = "btn_distribuer";
-            this.btn_distribuer.Size = new System.Drawing.Size(145, 53);
+            this.btn_distribuer.Size = new System.Drawing.Size(145, 67);
             this.btn_distribuer.TabIndex = 0;
             this.btn_distribuer.Text = "Distribuer les cartes";
             this.btn_distribuer.UseVisualStyleBackColor = true;
@@ -264,7 +267,7 @@
             this.btn_retourner.Location = new System.Drawing.Point(190, 5);
             this.btn_retourner.Margin = new System.Windows.Forms.Padding(15, 5, 15, 5);
             this.btn_retourner.Name = "btn_retourner";
-            this.btn_retourner.Size = new System.Drawing.Size(145, 53);
+            this.btn_retourner.Size = new System.Drawing.Size(145, 67);
             this.btn_retourner.TabIndex = 0;
             this.btn_retourner.Text = "Retourner les cartes";
             this.btn_retourner.UseVisualStyleBackColor = true;
@@ -276,7 +279,7 @@
             this.btn_jouer.Location = new System.Drawing.Point(365, 5);
             this.btn_jouer.Margin = new System.Windows.Forms.Padding(15, 5, 15, 5);
             this.btn_jouer.Name = "btn_jouer";
-            this.btn_jouer.Size = new System.Drawing.Size(151, 53);
+            this.btn_jouer.Size = new System.Drawing.Size(151, 67);
             this.btn_jouer.TabIndex = 0;
             this.btn_jouer.Text = "Jouer";
             this.btn_jouer.UseVisualStyleBackColor = true;
@@ -329,6 +332,26 @@
             this.il_cards_deck.Images.SetKeyName(40, "Taureau.jpg");
             this.il_cards_deck.Images.SetKeyName(41, "Vache.jpg");
             // 
+            // tempsRestantLabel
+            // 
+            this.tempsRestantLabel.AutoSize = true;
+            this.tempsRestantLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 33F);
+            this.tempsRestantLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.tempsRestantLabel.Location = new System.Drawing.Point(3, 83);
+            this.tempsRestantLabel.Name = "tempsRestantLabel";
+            this.tempsRestantLabel.Size = new System.Drawing.Size(0, 63);
+            this.tempsRestantLabel.TabIndex = 1;
+            // 
+            // timerLabel
+            // 
+            this.timerLabel.AutoSize = true;
+            this.timerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F);
+            this.timerLabel.ForeColor = System.Drawing.Color.Firebrick;
+            this.timerLabel.Location = new System.Drawing.Point(546, 0);
+            this.timerLabel.Name = "timerLabel";
+            this.timerLabel.Size = new System.Drawing.Size(0, 153);
+            this.timerLabel.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -351,7 +374,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_07)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_08)).EndInit();
             this.ButtonsLayout.ResumeLayout(false);
+            this.ButtonsLayout.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -377,5 +402,7 @@
         private System.Windows.Forms.Button btn_retourner;
         private System.Windows.Forms.Button btn_jouer;
         private System.Windows.Forms.ImageList il_cards_deck;
+        private System.Windows.Forms.Label tempsRestantLabel;
+        private System.Windows.Forms.Label timerLabel;
     }
 }
