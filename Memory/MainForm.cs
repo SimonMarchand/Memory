@@ -28,6 +28,10 @@ namespace Memory
         public MainForm()
         {
             InitializeComponent();
+            foreach (Control control in CardsTableLayout.Controls)
+            {
+                Console.WriteLine(control.Name);
+            }
         }
 
         private void btn_retourner_Click(object sender, EventArgs e)
@@ -103,9 +107,15 @@ namespace Memory
         private void afficherCarte(int indice, int[] cartes)
         {
             //Console.WriteLine(indice);
-            PictureBox carte = (PictureBox)CardsTableLayout.Controls[indice];
-            int i_image = cartes[indice];
-            carte.Image = il_cards_deck.Images[i_image];
+            foreach (PictureBox pictureBox in CardsTableLayout.Controls)
+            {
+                if (pictureBox.Name == "pb_0" + (indice+1))
+                {
+                    PictureBox carte = pictureBox;
+                    int i_image = cartes[indice];
+                    carte.Image = il_cards_deck.Images[i_image];
+                }
+            }
         }
 
         private void btn_jouer_Click(object sender, EventArgs e)
