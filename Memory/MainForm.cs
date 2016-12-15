@@ -28,10 +28,6 @@ namespace Memory
         public MainForm()
         {
             InitializeComponent();
-            foreach (Control control in CardsTableLayout.Controls)
-            {
-                Console.WriteLine(control.Name);
-            }
         }
 
         private void btn_retourner_Click(object sender, EventArgs e)
@@ -121,6 +117,7 @@ namespace Memory
         private void btn_jouer_Click(object sender, EventArgs e)
         {
             afficherCartes(cartesDistribuees);
+            this.Refresh();
             Thread.Sleep(2000);
             afficherCartes(cartesCachees);
         }
