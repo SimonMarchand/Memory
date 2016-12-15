@@ -32,8 +32,11 @@ namespace Memory
         private int counter;
 
         private bool inGame = false;
+        private bool lockJouer = false;
 
         private System.Windows.Forms.Timer timer;
+
+        private static int countdownValue = 45;
 
         public MainForm()
         {
@@ -56,8 +59,10 @@ namespace Memory
 
         private void btn_retourner_Click(object sender, EventArgs e)
         {
-            if (cartesDistribuees != null)
-                afficherCartes(cartesDistribuees);
+            if (inGame)
+            {
+                MessageBox.Show(null, "Bien essayé petit malin !", "Nice try", MessageBoxButtons.OK);
+            }
         }
 
         private void btn_distribuer_Click(object sender, EventArgs e)
@@ -146,6 +151,9 @@ namespace Memory
         {
             if (cartesDistribuees != null)
             {
+                btn_jouer.Enabled = false;
+                btn_distribuer.Enabled = false;
+
                 timer = new System.Windows.Forms.Timer();
                 timer.Tick += new EventHandler(timer_tick_init);
                 timer.Interval = 1000;
@@ -161,12 +169,11 @@ namespace Memory
 
         private void beginGame()
         {
-
             afficherCartes(cartesCachees);
             tempsRestantLabel.Text = "Temps restant :";
             inGame = true;
 
-            counter = 2;
+            counter = countdownValue;
             timerLabel.Text = counter.ToString();
             timer = new System.Windows.Forms.Timer();
             timer.Tick += new EventHandler(timer_tick_game);
@@ -176,9 +183,14 @@ namespace Memory
 
         private void endGame()
         {
-            MessageBox.Show(null, "Vous avez perdu !", "Perdu !", MessageBoxButtons.OK);
+            timer.Stop();
             inGame = false;
             afficherCartes(cartesDistribuees);
+            cartesDistribuees = null;
+            cartesRetournees = new List<int>();
+            essaiCartes = new List<int>();
+            btn_jouer.Enabled = true;
+            btn_distribuer.Enabled = true;
         }
 
         private void timer_tick_init(Object sender, EventArgs e)
@@ -204,8 +216,8 @@ namespace Memory
             }
             else
             {
-                timer.Stop();
                 endGame();
+                MessageBox.Show(null, "Vous avez perdu !", "Perdu !", MessageBoxButtons.OK);
             }
         }
 
@@ -217,7 +229,7 @@ namespace Memory
         // Permet de gérer le clic sur une image à l'index donné
         private void clickOnCard(int i)
         {
-            if (inGame)
+            if (inGame && !cartesRetournees.Contains(i))
             {
                 afficherCarte(i, cartesDistribuees);
                 essaiCartes.Add(i);
@@ -226,16 +238,15 @@ namespace Memory
                 {
                     if (cartesDistribuees[essaiCartes[0]] != cartesDistribuees[essaiCartes[1]])
                     {
+                        endGame();
                         MessageBox.Show(null, "Vous avez perdu !", "Perdu !", MessageBoxButtons.OK);
-                        inGame = false;
-                        afficherCartes(cartesDistribuees);
                     }
 
                     essaiCartes = new List<int>();
                 }
                 if (cartesRetournees.Count == CardsTableLayout.Controls.Count)
                 {
-                    inGame = false;
+                    endGame();
                     MessageBox.Show(null, "Vous avez gagné !", "Gagné !", MessageBoxButtons.OK);
                 }
             }
