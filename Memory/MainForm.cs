@@ -37,6 +37,8 @@ namespace Memory
 
         private static int countdownValue = 30;
 
+        private bool inGame;
+
         public MainForm()
         {
             InitializeComponent();
